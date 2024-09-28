@@ -26,11 +26,18 @@ app.use(helmet());
 // CORS setup
 app.use(
   cors({
-    origin: "https://smart-way-final-taskman.vercel.app",  // Allow frontend domain
-    methods: "GET, POST, PUT, DELETE",
-    credentials: true,  // Allow cookies
+    origin: "https://smart-way-final-taskman.vercel.app", // Frontend URL
+    methods: "GET, POST, PUT, DELETE", // Allowed HTTP methods
+    credentials: true, // Allow credentials (cookies, etc.)
   })
 );
+
+// Handle preflight requests explicitly
+app.options('*', cors({
+  origin: "https://smart-way-final-taskman.vercel.app",
+  credentials: true, // Allow credentials for preflight
+}));
+
 
 app.use(cookieParser());
 app.use(express.json());
