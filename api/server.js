@@ -17,15 +17,15 @@ dotenv.config();
 // app.get("*", (req, res) => {
 //   res.sendFile(path.join(__dirname, "../taskman/build", "index.html"));
 // });
+
+
+
+const app = express();
 const __dirname =  path.dirname("")
 const buildpath = path.join(__dirname,"../taskman/build")
 app.use(express.static(buildpath))
 const PORT = process.env.PORT || 7700;
-
 connectDB();
-
-const app = express();
-
 app.use(helmet());
 app.use(
   cors({
@@ -50,6 +50,7 @@ app.use(
 app.use("/smartway/auth", authRoute);
 app.use("/smartway/admin", adminRoute);
 app.use("/smartway/user", userRoute);
+
 
 // Error handling middleware
 app.use(errorHandler);
