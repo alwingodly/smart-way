@@ -29,7 +29,7 @@ connectDB();
 app.use(helmet());
 app.use(
   cors({
-    origin: "https://smart-way-frontend.vercel.app",
+    origin: process.env.FRONTEND_URL,
     methods: "GET, POST, PUT, DELETE",
     credentials: true,
   })
