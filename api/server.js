@@ -28,11 +28,7 @@ const PORT = process.env.PORT || 7700;
 connectDB();
 app.use(helmet());
 app.use(
-  cors({
-    origin: process.env.FRONTEND_URL,
-    methods: "GET, POST, PUT, DELETE",
-    credentials: true,
-  })
+  cors()
 );
 
 
