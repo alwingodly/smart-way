@@ -12,9 +12,9 @@ import {
 import storage from "redux-persist/lib/storage/session"; 
 import authSlice from "./authSlice";
 import { encryptTransform } from "redux-persist-transform-encrypt"; 
-
+// process.env.REACT_APP_SECRET_KEY,
 const encryptor = encryptTransform({
-  secretKey: process.env.REACT_APP_SECRET_KEY, 
+  secretKey:  "hollydev@o1o2o3o4o5o6o7o8o9_secure_op09iu78yt56re34wq12",
   onError: function (error) {
     console.error("Encryption Error: ", error);
   },
