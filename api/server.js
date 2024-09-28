@@ -12,10 +12,14 @@ import helmet from "helmet";
 import errorHandler from "./middlewares/errorHandlingMiddilewares/errrorHandler.js";
 import path from "path";
 dotenv.config();
-app.use(express.static(path.join(__dirname, "../taskman/build")));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../taskman/build", "index.html"));
-});
+
+// app.use(express.static(path.join(__dirname, "../taskman/build")));
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../taskman/build", "index.html"));
+// });
+const __dirname =  path.dirname("")
+const buildpath = path.join(__dirname,"../taskman/build")
+app.use(express.static(buildpath))
 const PORT = process.env.PORT || 7700;
 
 connectDB();
