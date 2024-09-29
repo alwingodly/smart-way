@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 
 export const authenticateToken = (req, res, next) => {
   const token = req.cookies.token; 
-  console.log(token);
+  console.log(token , "token" , req.cookies);
   if (!token) {
     return res.sendStatus(401);
   }
