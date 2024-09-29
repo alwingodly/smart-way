@@ -152,7 +152,6 @@ class DefaultClient {
 
   async executeHttpGet(url, params, headers) {
     return await axiosInstance.get(url, {
-      params: { ...params },
       headers: this.getHeaders(),
       withCredentials: true,
     });
