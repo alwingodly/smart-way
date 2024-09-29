@@ -44,13 +44,14 @@ app.use(
     saveUninitialized: true,
   })
 );
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'taskman', 'build')));
 
 app.use("/smartway/auth", authRoute);
 app.use("/smartway/admin", adminRoute);
 app.use("/smartway/user", userRoute);
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'taskman', 'build')));
+
 
 // Catch-all route to handle requests for React Router
 app.get('*', (req, res) => {
