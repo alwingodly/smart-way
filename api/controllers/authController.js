@@ -29,10 +29,10 @@ export const userLogin = async (req, res) => {
       "Set-Cookie",
       cookie.serialize("token", token, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: "strict",
+        // secure: process.env.NODE_ENV === "production",
+        // sameSite: "strict",
         maxAge: 60 * 60,
-        path: "/",
+        // path: "/",
       })
     );
 
@@ -77,10 +77,10 @@ export const adminLogin = async (req, res) => {
       "Set-Cookie",
       cookie.serialize("token", token, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: "strict",
+        // secure: process.env.NODE_ENV === "production",
+        // sameSite: "strict",
         maxAge: 60 * 60,
-        path: "/",
+        // path: "/",
       })
     );
 
