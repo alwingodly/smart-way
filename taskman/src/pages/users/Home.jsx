@@ -75,16 +75,16 @@ const Home = () => {
   };
 
   const handleCloseModal = () => {
-    setSelectedTask(null); // Close modal by resetting selected task
+    setSelectedTask(null);
   };
 
   return (
     <div className="p-4">
-      <div className="flex flex-wrap justify-between items-center mb-6 w-full">
-        <h1 className="text-2xl md:text-4xl font-extrabold text-navy-900 mb-4 md:mb-0">
+      <div className="flex flex-wrap justify-between items-center mb-2 md:mb-6 w-full">
+        <h1 className="text-2xl hidden md:block md:text-4xl font-extrabold text-navy-900 mb-4 md:mb-0">
           Task Overview
         </h1>
-        <div className="relative w-full max-w-md md:max-w-sm lg:max-w-md">
+        <div className="relative w-full max-w-md md:max-w-sm lg:max-w-md ml-8">
           <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <svg
               className="w-5 h-5 text-gray-400"
@@ -132,7 +132,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="mb-6 flex justify-end gap-2">
+      <div className="mb-6 flex justify-center md:justify-end gap-2">
         <button
           onClick={() => setAgentFilter("All")}
           className={`px-4 text-gray-600 text-sm border-b-2 ${

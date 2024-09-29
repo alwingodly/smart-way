@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
 
       <div className={`flex-1 transition-all duration-300 ${isMobile ? "ml-0" : "ml-64"} h-screen overflow-y-auto`}>
         {isMobile && (
-          <div className="absolute top-4 left-4">
+          <div className="absolute top-6 left-4">
             <button
               aria-label="Open Menu"
               onClick={() => setDrawerOpen(true)}
@@ -31,7 +31,7 @@ const Layout = ({ children }) => {
             </button>
           </div>
         )}
-        <main className="p-6">{children}</main>
+        <main className="p-2 md:p-6">{children}</main>
       </div>
     </div>
   );
