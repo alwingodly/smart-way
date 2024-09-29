@@ -24,6 +24,8 @@ import {AdminLoginURL, LoginURL} from "../apiManager/EndPoints"
         AdminLoginURL,
         data
       );
+      console.log(response);
+      
       console.log(response.data, "g-form");
       if (response.data.success) {
         return response.data;
