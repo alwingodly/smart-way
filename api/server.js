@@ -13,11 +13,11 @@ import errorHandler from "./middlewares/errorHandlingMiddilewares/errrorHandler.
 import path from "path";
 
 dotenv.config();
-
+const __dirname = path.resolve()
 const app = express();
-const __dirname = path.dirname("");
-const buildpath = path.join(__dirname, "../taskman/build");
-app.use(express.static(buildpath));
+// const buildpath = path.join(__dirname, "../taskman/build");
+// app.use(express.static(buildpath));
+
 const PORT = process.env.PORT || 7700;
 
 connectDB();
@@ -48,6 +48,10 @@ app.use("/smartway/auth", authRoute);
 app.use("/smartway/admin", adminRoute);
 app.use("/smartway/user", userRoute);
 
+app.use(express.static(path.join(__dirname , '/taskman/build')))
+app.get('*' , (req,  res)=>{
+  res.sendFile(path.join(__dirname , 'taskman' , 'build' , 'index.html'))
+})
 app.use(errorHandler);
 
 app.listen(PORT, () => {
