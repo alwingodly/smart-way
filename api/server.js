@@ -30,10 +30,6 @@ app.use(
   })
 );
 
-app.options('*', cors({
-  origin: "https://smart-way-taskman.onrender.com",
-  credentials: true, 
-}));
 
 
 app.use(cookieParser());
