@@ -23,19 +23,17 @@ const PORT = process.env.PORT || 7700;
 connectDB();
 app.use(helmet());
 
-// CORS setup
 app.use(
   cors({
-    origin: "https://smar-way-final-taskman-six.vercel.app", // Frontend URL
-    methods: "GET, POST, PUT, DELETE", // Allowed HTTP methods
-    credentials: true, // Allow credentials (cookies, etc.)
+    origin: "https://smar-way-final-taskman-six.vercel.app", 
+    methods: "GET, POST, PUT, DELETE",
+    credentials: true, 
   })
 );
 
-// Handle preflight requests explicitly
 app.options('*', cors({
   origin: "https://smar-way-final-taskman-six.vercel.app",
-  credentials: true, // Allow credentials for preflight
+  credentials: true, 
 }));
 
 
@@ -50,15 +48,12 @@ app.use(
   })
 );
 
-// Routes
 app.use("/smartway/auth", authRoute);
 app.use("/smartway/admin", adminRoute);
 app.use("/smartway/user", userRoute);
 
-// Error handling middleware
 app.use(errorHandler);
 
-// Start the server
 app.listen(PORT, () => {
   logger.info(`Server is running on port ${PORT}`);
 });
