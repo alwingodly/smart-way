@@ -5,7 +5,7 @@ import { authenticateToken } from '../middlewares/authMiddileware/authMiddleware
 const router = express.Router();
 
 router.post('/addEmployee',authenticateToken,validateAddEmployee, addEmployee);
-router.get('/getEmployees', authenticateToken,getEmployees)
+router.get('/getEmployees',getEmployees)
 router.delete('/deleteEmployees/:id', authenticateToken,deleteEmployees)
 router.get('/getEmployeeDetails/:employeeId', authenticateToken,getEmployeeDetails)
 
