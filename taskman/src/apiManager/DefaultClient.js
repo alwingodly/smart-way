@@ -71,13 +71,6 @@ class DefaultClient {
         if (error?.message === "canceled") {
           throw { message: "Api Cancelled" };
         }
-        if (error.status === 401) {
-          store.dispatch(setLogout());
-          persistor.pause();
-          persistor.flush().then(() => {
-            return persistor.purge();
-          });
-        }
         console.log(
           "catch block error.response.data.error",
           error?.response?.data?.error
@@ -105,13 +98,6 @@ class DefaultClient {
           if (error?.message === "canceled") {
             throw { message: "Api Cancelled" };
           }
-          if (error.status === 401) {
-            store.dispatch(setLogout());
-            persistor.pause();
-            persistor.flush().then(() => {
-              return persistor.purge();
-            });
-          }
           console.log(
             "catch block error.response.data.error",
             error.response.data.error
@@ -135,13 +121,6 @@ class DefaultClient {
           response = await this.executeHttpJsonPost(url, requestBody, null);
           apiResult.setApiResponse(response.data);
         } catch (error) {
-          if (error.status === 401) {
-            store.dispatch(setLogout());
-            persistor.pause();
-            persistor.flush().then(() => {
-              return persistor.purge();
-            });
-          }
           console.error(error, "hh");
           throw error;
         }
