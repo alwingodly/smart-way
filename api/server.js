@@ -13,7 +13,8 @@ import errorHandler from "./middlewares/errorHandlingMiddilewares/errrorHandler.
 import path from "path";
 
 dotenv.config();
-const __dirname = path.resolve()
+// const __dirname = path.resolve()
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
 const app = express();
 // const buildpath = path.join(__dirname, "../taskman/build");
 // app.use(express.static(buildpath));
@@ -48,10 +49,13 @@ app.use("/smartway/auth", authRoute);
 app.use("/smartway/admin", adminRoute);
 app.use("/smartway/user", userRoute);
 
-app.use(express.static(path.join(__dirname , '/taskman/build')))
-app.get('*' , (req,  res)=>{
-  res.sendFile(path.join(__dirname , 'taskman' , 'build' , 'index.html'))
-})
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'taskman', 'build')));
+
+// Catch-all route to handle requests for React Router
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'taskman', 'build', 'index.html'));
+});
 app.use(errorHandler);
 
 app.listen(PORT, () => {
