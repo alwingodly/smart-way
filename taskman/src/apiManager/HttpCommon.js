@@ -1,7 +1,7 @@
 import axios from "axios";
 const getUrl = () => {
   //return window.location.href.split("#")[0] + "smartway";
-  return "http://webappkinster.online/smartway";
+  return "https://smart-way-api.onrender.com/smartway";
 };
 export default axios.create({
   baseURL: getUrl(),
