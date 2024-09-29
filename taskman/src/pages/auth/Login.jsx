@@ -63,7 +63,7 @@ const Login = () => {
   };
 
   return (
-    <div className="h-screen flex justify-center items-center bg-gradient-to-r from-teal-100 via-indigo-200 to-purple-300">
+    <div className="h-screen flex justify-center p-4 items-center bg-gradient-to-r from-teal-100 via-indigo-200 to-purple-300">
       <div className="w-full max-w-md p-8 lg:p-10 mx-auto bg-white rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-300">
         <div className="flex justify-center items-center mb-6">
           {/* Logo Placeholder */}

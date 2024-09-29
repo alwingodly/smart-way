@@ -60,8 +60,6 @@ const EditForm = ({ setIsloading }) => {
     }
   };
 
-  if (loading) return <p>Loading...</p>; // Optional loading state
-
   return (
     <div className="p-6 shadow-sm w-[100%] rounded-xl border border-gray-200">
       <h2 className="text-xl font-semibold text-gray-800 mb-6">Edit Enquiry</h2>

@@ -26,7 +26,8 @@ app.use(helmet());
 app.set('trust proxy', 1);  // Trust first proxy
 app.use(
   cors({
-    origin: "https://smart-way-taskman.onrender.com", 
+    // origin: "https://smart-way-taskman.onrender.com", 
+    origin: "http://localhost:3000", 
     methods: "GET, POST, PUT, DELETE",
     credentials: true, 
   })

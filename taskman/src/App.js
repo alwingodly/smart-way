@@ -61,9 +61,9 @@ function App() {
           element={
             <AdminWrapper
               element={
-                <Layout>
+                // <Layout>
                   <EmployeeDetails />
-                </Layout>
+                // </Layout>
               }
             />
           }

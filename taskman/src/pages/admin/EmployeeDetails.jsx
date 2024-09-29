@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import adminService from "../../service/adminService";
 import Loader from "../../components/Loader";
+import { IoArrowBackSharp } from "react-icons/io5";
 
 const EmployeeDetails = () => {
   const { employeeId } = useParams();
@@ -10,6 +11,7 @@ const EmployeeDetails = () => {
   const [error, setError] = useState(null);
   const [selectedTask, setSelectedTask] = useState(null);
   const [isLoading, setIsloading] = useState(false);
+  const navigate = useNavigate()
 
   useEffect(() => {
     handleEmployeeDetails();
@@ -35,7 +37,7 @@ const EmployeeDetails = () => {
   };
 
   const handleViewMore = (task) => {
-    setSelectedTask(task); 
+    setSelectedTask(task);
   };
 
   const handleCloseModal = () => {
@@ -49,22 +51,26 @@ const EmployeeDetails = () => {
   if (error) {
     return <div className="p-4 text-red-500 text-center">{error}</div>;
   }
-
+  const goBackToHome = ()=>{
+    navigate('/dashboard' , {replace:true})
+  }
   return (
     <div className="p-4">
-      <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">
-        Employee Enquiries
+      <div className="px-6 py-2 md:flex hidden cursor-pointer gap-4" ><p onClick={goBackToHome} className=" bg-gradient-to-r from-emerald-600 to-emerald-700 flex text-white rounded-lg items-center justify-center text-sm gap-2 px-6 p-2"><IoArrowBackSharp size={20}/> Go to dashboard </p></div>
+
+      <h1 className="text-2xl md:text-4xl items-center  font-bold text-center mb-8 text-gray-800 flex md:justify-center gap-6">
+      <IoArrowBackSharp size={24} className="md:hidden flex"/>  Employee Enquiries
       </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-8 gap-4 md:px-8">
         {employeeEnquires.length > 0 ? (
           employeeEnquires.map((task) => (
             <div
               key={task.workno}
-              className="relative p-6 bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 rounded-lg shadow-md transition-transform transform hover:scale-105 hover:shadow-2xl duration-200"
+              className="relative p-6 bg-gradient-to-br from-emerald-50 to-sky-50 border hover:border-green-200 rounded-lg transition-transform transform hover:scale-105 hover:shadow-lg duration-200"
             >
-              <h3 className="text-xl font-semibold text-gray-900 mb-2 truncate">
-                {task.EnqiryName}
-              </h3>
+              <p className="text-xl font-semibold text-gray-900 mb-2 truncate flex justify-between">
+                {task.EnqiryName} <span className=" flex items-center justify-center text-xs border px-4 rounded-full border-emerald-600 text-emerald-600">{task.status}</span>
+              </p>
               <div className="text-gray-700 text-sm space-y-2">
                 <span className="flex">
                   <span className="font-medium text-gray-900 w-1/3">Date:</span>
@@ -113,7 +119,7 @@ const EmployeeDetails = () => {
                 )}
               </div>
               <button
-                className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-4 py-2 mt-6 rounded-full text-sm font-medium hover:bg-gradient-to-l hover:from-teal-500 hover:to-emerald-500 shadow-md transition-all duration-200"
+                className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-4 py-2 mt-6 rounded-md text-sm font-medium hover:bg-gradient-to-l hover:from-teal-500 hover:to-emerald-500 shadow-md transition-all duration-200"
                 onClick={() => handleViewMore(task)}
               >
                 View More
@@ -121,7 +127,9 @@ const EmployeeDetails = () => {
             </div>
           ))
         ) : (
-          <p className="text-gray-500 text-center">No enquiries found</p>
+          <div className="">
+            <p className="text-gray-500 text-center">No enquiries found</p>
+          </div>
         )}
       </div>
 
@@ -178,14 +186,14 @@ const EmployeeDetails = () => {
               <strong className="text-gray-800">Remark:</strong>{" "}
               {selectedTask.remark || "N/A"}
             </p>
-          </div>
-          <div className="mt-4 flex justify-end">
-            <button
-              onClick={handleCloseModal}
-              className="bg-gradient-to-r from-red-400 to-red-600 text-white py-2 px-4 rounded-lg shadow hover:bg-red-700 transition-all duration-200"
-            >
-              Close
-            </button>
+            <div className="mt-4 flex justify-end">
+              <button
+                onClick={handleCloseModal}
+                className="bg-gradient-to-r from-red-400 to-red-600 text-white py-2 px-4 rounded-lg shadow hover:bg-red-700 transition-all duration-200"
+              >
+                Close
+              </button>
+            </div>
           </div>
         </div>
       )}

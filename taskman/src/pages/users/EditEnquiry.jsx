@@ -11,7 +11,7 @@ const EditEnquiry = () => {
   }
   return (
     <>
-      <div className="p-8 cursor-pointer flex gap-4" ><p onClick={goBackToHome} className=" bg-emerald-700 flex text-white rounded-lg items-center justify-center gap-2 px-4 p-2"><IoArrowBackSharp size={24}/> Go to home </p></div>
+      <div className="px-6 py-2 md:flex hidden cursor-pointer gap-4" ><p onClick={goBackToHome} className=" bg-gradient-to-r from-emerald-600 to-emerald-700 flex text-white rounded-lg items-center justify-center text-sm gap-2 px-6 p-2"><IoArrowBackSharp size={20}/> Go to home </p></div>
       <div className="max-w-2xl w-[100%] mx-auto flex my-8 items-center">
         <EditForm setIsloading={setIsloading} />
         <Loader showLoader={isLoading} />
