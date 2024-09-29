@@ -22,17 +22,16 @@ const PORT = process.env.PORT || 7700;
 
 connectDB();
 app.use(helmet());
-
 app.use(
   cors({
-    origin: "https://smar-way-final-taskman-six.vercel.app", 
+    origin: "https://smart-way-taskman.onrender.com", 
     methods: "GET, POST, PUT, DELETE",
     credentials: true, 
   })
 );
 
 app.options('*', cors({
-  origin: "https://smar-way-final-taskman-six.vercel.app",
+  origin: "https://smart-way-taskman.onrender.com",
   credentials: true, 
 }));
 
