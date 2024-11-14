@@ -68,7 +68,7 @@ const Login = () => {
         <div className="flex justify-center items-center mb-6">
           {/* Logo Placeholder */}
           <h1 className="text-4xl font-bold text-gray-700 tracking-wide">
-            Login
+            LOGIN
           </h1>
         </div>
 
