@@ -30,7 +30,7 @@ export const userLogin = async (req, res) => {
       cookie.serialize("token", token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",  // Secure in production
-        sameSite: process.env.NODE_ENV === "production" ? "None" : "Strict",  // Cross-site cookie handling
+        //sameSite: process.env.NODE_ENV === "production" ? "None" : "Strict",  // Cross-site cookie handling
         maxAge: 60 * 60,  // 1 hour
         path: "/",  // Cookie available for all routes
       })
@@ -78,7 +78,7 @@ export const adminLogin = async (req, res) => {
       cookie.serialize("token", token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",  // Secure in production
-        sameSite: process.env.NODE_ENV === "production" ? "None" : "Strict",  // Cross-site cookie handling
+        //sameSite: process.env.NODE_ENV === "production" ? "None" : "Strict",  // Cross-site cookie handling
         maxAge: 60 * 60,  // 1 hour
         path: "/",  // Cookie available for all routes
       })
